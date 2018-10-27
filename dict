@@ -1,0 +1,47 @@
+# learn a good way of sorting dict:
+# https://dzone.com/articles/sorting-dictionaries-in-python
+
+2. List of Sorted Keys
+Here is the sample dict that we are going to be working with:
+
+prices = {'Apple': 1.99, 'Banana': 0.99, 'Orange': 1.49, 'Cantaloupe': 3.99, 'Grapes': 0.39}
+You can obtain a sorted list of the keys using the sorted() function on the iterkeys() method.
+
+print sorted(prices.iterkeys())
+['Apple', 'Banana', 'Cantaloupe', 'Grapes', 'Orange']
+Which is essentially the same as the using the sorted() function on the dict itself. This is because the sorted() function accesses the iterator of the argument, and the dictionary returns an iterator over the keys.
+
+print sorted(prices)
+['Apple', 'Banana', 'Cantaloupe', 'Grapes', 'Orange']
+3. Sorting by Keys
+That is all very well for obtaining a sorted list of keys, but what if we want the whole dictionary sorted in some form of a list?
+
+Well, the method iteritems() returns an iterator of the key-value tuples of the dictionary, so you can apply the sorted() function to the return value. This returns a list of tuples sorted by the key.
+
+print sorted(prices.iteritems())
+[('Apple', 1.99), ('Banana', 0.99), ('Cantaloupe', 3.99), ('Grapes', 0.39), ('Orange', 1.49)]
+# a list of tuple is returned
+
+4. Sorting by Values
+The same method as above can be used to sort a dictionary by values in a couple of variations. First is to use the key argument to the sorted() function as follows. For each key-value tuple, we return the second item of the tuple as the sort key so the list of tuples is not sorted by the value.
+
+print sorted(prices.iteritems(), key = lambda x : x[1])
+[('Grapes', 0.39), ('Banana', 0.99), ('Orange', 1.49), ('Apple', 1.99), ('Cantaloupe', 3.99)]
+And here is another method to sort a dictionary by keys. This method specifies a comparison function to the sorted() function which receives two tuples to compare and uses cmp() to compare the second element of each. This method is more general in the sense that you can specify arbitrary conditions in the comparison function.
+
+print sorted(prices.iteritems(), lambda x, y : cmp(x[1], y[1]))
+[('Grapes', 0.39), ('Banana', 0.99), ('Orange', 1.49), ('Apple', 1.99), ('Cantaloupe', 3.99)]
+# a list of tuple is returned
+
+5. List of Sorted Values
+And finally, to obtain a list of sorted values, we use the itervalues() method and pass the result to the sorted() function.
+
+print sorted(prices.itervalues())
+[0.39, 0.99, 1.49, 1.99, 3.99]
+6. Reversing the Sort Order
+In the all the cases above where we used the sorted() function, we can reverse the sort order merely by passing the option reverse=True.
+
+print sorted(prices.itervalues(), reverse=True)
+[3.99, 1.99, 1.49, 0.99, 0.39]
+To review, we learned various aspects of sorting dictionaries. These included: obtaining a list of sorted keys and sorted values. Key-value pairs can be extracted as a list of tuples which are sorted by key or value.
+
