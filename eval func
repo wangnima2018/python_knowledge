@@ -1,0 +1,37 @@
+https://stackoverflow.com/questions/9383740/what-does-pythons-eval-do
+The eval function lets a Python program run Python code within itself.
+
+example:
+Sample Input 0
+
+12
+insert 0 5
+insert 1 10
+insert 0 6
+print
+remove 6
+append 9
+append 1
+sort
+print
+pop
+reverse
+print
+Sample Output 0
+
+[6, 5, 10]
+[1, 5, 9, 10]
+[9, 5, 1]
+
+n = input()
+l = []
+for _ in range(n):
+    s = raw_input().split()
+    cmd = s[0]
+    args = s[1:]
+    if cmd !="print":
+        cmd += "("+ ",".join(args) +")"
+        eval("l."+cmd)
+    else:
+        print l
+        
