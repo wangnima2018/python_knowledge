@@ -1,0 +1,11 @@
+
+example1:
+
+l = ["2","3","4"]
+",".join(l)
+this is the result: '2,3,4'
+
+example2:
+l = ["2"]
+",".join(l)
+this is the result: '2'
