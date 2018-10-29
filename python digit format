@@ -1,0 +1,11 @@
+Python强大的格式化format
+
+https://www.cnblogs.com/wongbingming/p/6848701.html
+
+:号后面带填充的字符，只能是一个字符，不指定的话默认是用空格填充
+
+精度与类型f
+精度常跟类型f一起使用
+
+In [44]: '{:.2f}'.format(321.33345)
+Out[44]: '321.33'
