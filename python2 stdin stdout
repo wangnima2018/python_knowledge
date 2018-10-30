@@ -1,0 +1,5 @@
+stdin:
+m = int(raw_input())
+
+stdout:
+print sum(A)
