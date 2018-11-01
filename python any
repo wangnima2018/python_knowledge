@@ -1,0 +1,8 @@
+python any:
+https://www.programiz.com/python-programming/methods/built-in/any
+
+Return Value from any()
+any() returns:
+
+True if at least one element of an iterable is true
+False if all elements are false or if an iterable is empty
