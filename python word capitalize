@@ -1,0 +1,6 @@
+capitalize change the word of first letter to be capital
+
+def solve(s):
+    l = s.split(" ")
+    a = [i.capitalize() for i in l]
+    return " ".join(a)
