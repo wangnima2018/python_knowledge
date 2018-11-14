@@ -1,0 +1,4 @@
+https://docs.python.org/2.7/library/heapq.html
+
+pending question, by default, python heap is min heap.
+How to use a python max heap?
